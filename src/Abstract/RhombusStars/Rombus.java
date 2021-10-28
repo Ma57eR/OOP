@@ -1,4 +1,4 @@
-package Abstract.StudentSystem.RhombusStars;
+package Abstract.RhombusStars;
 
 import java.util.Scanner;
 
