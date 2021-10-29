@@ -1,4 +1,4 @@
-package Abstract;
+package Abstract.StudentSystem;
 
 import java.util.Scanner;
 

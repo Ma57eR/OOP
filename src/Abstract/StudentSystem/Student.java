@@ -1,4 +1,4 @@
-package Abstract;
+package Abstract.StudentSystem;
 public class Student {
     private String name;
     private int age;
