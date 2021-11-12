@@ -20,6 +20,8 @@ public class Person {
 
 
 
+
+
     private void setFirstName(String firstName) {
         if (firstName.length() < 3) {
             throw new IllegalArgumentException("Names must be at least 3 symbols");
@@ -67,7 +69,6 @@ public class Person {
     public double getIncrease() {
         return increaseSalary;
     }
-
 
 
     public void increaseSalary(double percentage) {
