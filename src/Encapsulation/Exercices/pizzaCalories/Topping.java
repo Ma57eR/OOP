@@ -5,19 +5,30 @@ public class Topping {
     private double weight;
 
     public Topping(String toppingType, double weight) {
-        this.toppingType = toppingType;
+        this.setToppingType(toppingType);
+        this.setWeight(weight);
+    }
+
+    public void setWeight(double weight) {
+        if (weight > 50) {
+            throw new IllegalArgumentException(this.toppingType + " weight should be in the range [1..50].");
+        }
+
         this.weight = weight;
     }
 
-    //toppings can be of type meat, veggies, cheese or sauce
+    public void setToppingType(String toppingType) {
+        if (!isInToppingList(toppingType)) {
+            throw new IllegalArgumentException("Cannot place " + toppingType + " on top of your pizza");
+        }
+        this.toppingType = toppingType;
+    }
 
-    //Toppings Modifiers
-    //•	Meat – 1.2;
-    //•	Veggies – 0.8;
-    //•	Cheese – 1.1;
-    //•	Sauce – 0.9;
+    private boolean isInToppingList(String toppingType) {
+        return toppingType.equals("Meat") || toppingType.equals("Veggies") || toppingType.equals("Cheese") || toppingType.equals("Sauce");
+    }
 
-    public double calculateToppingCalories() {
+    public double calculateCalories() {
         double toppingMod = 0.0;
         switch (this.toppingType) {
             case "Meat":
@@ -32,6 +43,7 @@ public class Topping {
             case "Sauce":
                 toppingMod = 0.9;
                 break;
+
         }
 
         return this.weight * toppingMod;

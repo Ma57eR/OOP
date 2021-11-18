@@ -11,27 +11,30 @@ public class Dough {
         this.weight = weight;
     }
 
-    //: the dough can be white or wholegrain
-    //and in addition it can be crispy, chewy or homemade
 
     private void setWeight(double weight) {
+        if (weight > 200) {
+            throw new IllegalArgumentException("Dough weight should be in the range [1..200].");
+        }
         this.weight = weight;
     }
 
     private void setFlourType(String flourType) {
+        if (!isFlourInList(flourType)) {
+            throw new IllegalArgumentException("Invalid type of dough.");
+        }
         this.flourType = flourType;
+    }
+
+    private boolean isFlourInList(String flourType) {
+        return flourType.equals("White") || flourType.equals("Wholegrain");
     }
 
     private void setBakingTechnique(String bakingTechnique) {
         this.bakingTechnique = bakingTechnique;
     }
-    //Dough Modifiers
-    //•	White – 1.5;
-    //•	Wholegrain – 1.0;
-    //•	Crispy – 0.9;
-    //•	Chewy – 1.1;
-    //•	Homemade – 1.0;
-    public double calculateDoughCalories() {
+
+    public double calculateCalories() {
         return this.weight * this.flourModificator() * this.bakingModificator();
     }
     private double flourModificator() {
@@ -43,6 +46,8 @@ public class Dough {
             case "Wholegrain":
                 flourMod = 1.0;
                 break;
+
+
         }
         return flourMod;
     }
