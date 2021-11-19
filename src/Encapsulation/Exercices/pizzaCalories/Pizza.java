@@ -15,13 +15,13 @@ public class Pizza {
     }
 
     private void setToppings(int toppings) {
-        if (toppings > 10) {
+        if (toppings > 10 || toppings < 0) {
             throw new IllegalArgumentException("Number of toppings should be in range [0..10].");
         }
     }
 
     private void setName(String name) {
-        if (name == null || name.length() > 15 || name.equals(" ")) {
+        if (name == null || name.length() > 15 || name.equals(" ") || name.isEmpty()) {
             throw new IllegalArgumentException("Pizza name should be between 1 and 15 symbols.");
         }
         this.name = name;

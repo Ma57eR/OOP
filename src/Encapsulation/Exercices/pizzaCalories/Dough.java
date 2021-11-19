@@ -6,14 +6,14 @@ public class Dough {
     private double weight;
 
     public Dough(String flourType, String bakingTechnique, double weight) {
-        this.flourType = flourType;
-        this.bakingTechnique = bakingTechnique;
-        this.weight = weight;
+        this.setFlourType(flourType);
+        this.setBakingTechnique(bakingTechnique);
+        this.setWeight(weight);
     }
 
 
     private void setWeight(double weight) {
-        if (weight > 200) {
+        if (weight > 200 || weight<1) {
             throw new IllegalArgumentException("Dough weight should be in the range [1..200].");
         }
         this.weight = weight;
@@ -31,7 +31,14 @@ public class Dough {
     }
 
     private void setBakingTechnique(String bakingTechnique) {
+        if (!isBakingTechInList(bakingTechnique)) {
+            throw new IllegalArgumentException("Invalid type of dough.");
+        }
         this.bakingTechnique = bakingTechnique;
+    }
+
+    private boolean isBakingTechInList(String bakingTechnique) {
+        return bakingTechnique.equals("Crispy") || bakingTechnique.equals("Chewy") || bakingTechnique.equals("Homemade");
     }
 
     public double calculateCalories() {

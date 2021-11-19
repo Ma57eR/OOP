@@ -10,7 +10,7 @@ public class Topping {
     }
 
     public void setWeight(double weight) {
-        if (weight > 50) {
+        if (weight > 50 || weight < 1) {
             throw new IllegalArgumentException(this.toppingType + " weight should be in the range [1..50].");
         }
 

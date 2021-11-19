@@ -1,8 +1,5 @@
 package Abstract.PointRectangle;
 
-import java.util.LinkedList;
-import java.util.List;
-
 public class Rectangle {
     private Point bottomLeft;
     private Point topRight;
