@@ -18,7 +18,7 @@ public class Tiger extends Felime{
     @Override
     public void eat(Food food) {
         if (food.getClass().getSimpleName().equals("Meat")) {
-            this.setFoodEaten(food.getQuantity());
+            super.eat(food);
         } else {
             System.out.println(getClass().getSimpleName() + "s are not eating that type of food!");
         }

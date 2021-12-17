@@ -48,8 +48,8 @@ public class Main {
             } else {
                 currentFood = new Vegetable(quantity);
             }
-            currentAnimal.eat(currentFood);
             currentAnimal.makeSound();
+            currentAnimal.eat(currentFood);
             System.out.println(currentAnimal);
             tokens = scan.nextLine().split(" ");
         }

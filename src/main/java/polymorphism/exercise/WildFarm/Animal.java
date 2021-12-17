@@ -1,5 +1,7 @@
 package polymorphism.exercise.WildFarm;
 
+import java.text.DecimalFormat;
+
 public abstract class Animal {
     private String animalName;
     private String animalType;
@@ -38,7 +40,8 @@ public abstract class Animal {
     }
 
     public double getAnimalWeight() {
-        return animalWeight;
+
+        return animalWeight ;
     }
 
     public void setAnimalWeight(double animalWeight) {
@@ -52,4 +55,6 @@ public abstract class Animal {
     public void setFoodEaten(int foodEaten) {
         this.foodEaten += foodEaten ;
     }
+
+
 }
